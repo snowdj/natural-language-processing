@@ -11,7 +11,7 @@ First, you need to perform several preparatory steps (if you have already done t
 
 Next, you are ready to create your first EC2 instance:
 - [Launch a free tier instance](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-launch-instance). For Amazon Machine Image (AMI) choose **Ubuntu Server 16.04 LTS**.
-- [Connect to your instance](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-connect-to-instance-linux) using SSH.
+- [Connect to your instance](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-connect-to-instance-linux) using SSH. If you have problems connecting to the instance, try following this [troubleshooting guide](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html).
 - Later on you can [start and stop](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html) your instance when needed, and [terminate](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-clean-up-your-instance) it in the end.
 
 ### 2. Set up dependencies and run your project
@@ -23,6 +23,9 @@ Next, you are ready to create your first EC2 instance:
 ssh -L 8080:localhost:8080 -i path/to/private_key ubuntu@ec2-XX-XXX-X-XX.us-east-2.compute.amazonaws.com
 ```
 Then you will be able to see the notebooks on *localhost:8080* from your browser on the local machine.
+
+If you're using PuTTY, before you start your SSH connection, go to the PuTTY Tunnels panel. Make sure the «Local» and «Auto» radio buttons are set. Enter the local port 8080 number into the «Source port» box. Enter the destination host name and port number into the «Destination» box, separated by a colon ubuntu@ec2-XX-XXX-X-XX.us-east-2.compute.amazonaws.com:8080.
+For more details see [this guide](https://www.akadia.com/services/ssh_putty.html).
 
 - Bring code and data to AWS instance, e.g.
 ```sh
